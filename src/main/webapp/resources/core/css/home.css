@@ -1,6 +1,20 @@
 .welcome-prop{
-	background-color: green;
+	height: 4%;
 }
-h1{
-	color: red;
+
+.btn-start-game-container{
+	text-align: center;
+    height: 40%;
+    background-color: #60e660;
+    margin-bottom: 50%;
 }
+
+.btn-lg{
+    width: 50%;
+    margin-top: 4%;
+}
+
+.lable-game {
+    padding-top: 6%;
+}
+    

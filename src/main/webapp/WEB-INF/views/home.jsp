@@ -15,17 +15,17 @@
 	</head>
 	
 	<body>
-		<div class="welcome-prop">
-			<h1>
-				${lableGameName}  
-			</h1>
+		<div class="welcome-prop">		
 		</div>
 
-		
-		<form action="game" method="post">
-				<input class="btn-lg" type="submit" name="startButton" value="Start game"/>
-		</form>
-		<button type="button" class="btn active btn-info btn-lg">Large Info Button</button>
-		
+		<div class=btn-start-game-container>
+			<h1 class="lable-game">
+				${lableGameName}  
+			</h1>
+			<form action="game" method="post">
+					<input class="btn-lg" type="submit" name="startButton" value="Start game"/>
+			</form>
+			<!--  <button type="button" class="btn active btn-info btn-lg">Large Info Button</button> -->
+		</div>
 	</body>
 </html>
