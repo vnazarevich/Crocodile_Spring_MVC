@@ -9,7 +9,8 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">		
 		<link rel="stylesheet" href="${gameCss}">		
 	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
+	 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	 	<c:url var="home" value="/" scope="request" />	
 	</head>
 	
 	<body>
@@ -44,8 +45,36 @@
 				<div class="panel panel-default">
  					<div class="panel-body">Трамбон</div>
 				</div>
+				<input class="btn-lg" type="submit" id="test" value="Test Ajax"/>
 			</div>			
 		</div>
-
+		<script type="text/javascript">
+		
+			$("#test").click(function(){
+				$.ajax({
+					type : "POST",
+					contentType : "application/json",
+					url : "${home}api/word",
+					/*data : "level:1",*/
+					dataType : 'json',
+					timeout : 100000,
+					success : function(){
+						console.log("SUCCESS: ", data);
+							/*data) {
+						console.log("SUCCESS: ", data);
+						display(data);
+						*/
+					},
+					error : function(e) {
+						console.log("ERROR: ", e);
+						display(e);
+					},
+					done : function(e) {
+						console.log("DONE");
+					}
+				});
+			});
+			
+		</script>
 	</body>
 </html>
