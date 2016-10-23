@@ -1,0 +1,15 @@
+.form-control{
+	width:30%;
+}
+
+.form-group{
+	.lable{
+		float: left;
+    	width: 20%;
+	}
+}
+
+.lable{
+		float: left;
+    	width: 20%;
+	}

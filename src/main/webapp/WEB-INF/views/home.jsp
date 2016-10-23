@@ -25,7 +25,6 @@
 			<form action="game" method="post">
 					<input class="btn-lg" type="submit" name="startButton" value="Start game"/>
 			</form>
-			<!--  <button type="button" class="btn active btn-info btn-lg">Large Info Button</button> -->
 		</div>
 	</body>
 </html>
