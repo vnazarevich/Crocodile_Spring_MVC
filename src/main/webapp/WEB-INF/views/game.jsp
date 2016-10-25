@@ -40,10 +40,10 @@
 			</div>
 			<div class="game-content">
 				<form action="game" method="post">
-					<input class="btn-lg" type="submit" name="newWord" value="New Word"/>
+					<input class="btn-lg" type="submit" id="btn-newWord" value="New Word"/>
 				</form>
 				<div class="panel panel-default">
- 					<div class="panel-body">Трамбон</div>
+ 					<div class="panel-body" id="word">Трамбон</div>
 				</div>
 				<input class="btn-lg" type="submit" id="test" value="Test Ajax"/>
 			</div>			
@@ -53,17 +53,16 @@
 			$("#test").click(function(){
 				$.ajax({
 					type : "POST",
-					contentType : "application/json",
 					url : "${home}api/word",
-					/*data : "level:1",*/
-					dataType : 'json',
-					timeout : 100000,
-					success : function(){
+					data : "level:1",
+					dataType : 'text',
+					success : function(data){
 						console.log("SUCCESS: ", data);
-							/*data) {
+						/*data) {
 						console.log("SUCCESS: ", data);
 						display(data);
 						*/
+						$("#word").text(data);
 					},
 					error : function(e) {
 						console.log("ERROR: ", e);
