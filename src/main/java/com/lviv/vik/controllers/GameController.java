@@ -1,4 +1,4 @@
-package com.lviv.vik;
+package com.lviv.vik.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
