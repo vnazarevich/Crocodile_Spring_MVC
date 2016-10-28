@@ -15,6 +15,7 @@
 	
 	<body>
 		<div class="content">	
+			<form id="form">
 			<div class="config-content">
 				<div class="rules">
 					  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Rules</button>
@@ -22,16 +23,17 @@
 					    Правила в розробці )
 					  </div>
 				</div>
+				
 				<div class="form-group">
-				  	<label class="lable" for="sel1">Select language:</label>
-				  	<select class="form-control" id="language">
+				  	<label class="lable" for="language">Select language:</label>
+				  	<select class="form-control" name="language" id="language">
 					    <option>uk</option>
 					    <option>en</option>
 			  		</select>
 				</div>
 				<div class="form-group">
-				  	<label class="lable" for="sel1">Select level:</label>
-				  	<select class="form-control" id="level">
+				  	<label class="lable" for="level">Select level:</label>
+				  	<select class="form-control" name="level" id="level">
 					    <option>1</option>
 					    <option>2</option>
 					    <option>3</option>
@@ -39,68 +41,38 @@
 				</div>
 			</div>
 			<div class="game-content">
-				<form id="form">
-					<input type=text class="form-control" id="user">
-					<input type=text class="form-control" id="tel">
-					<!--  <input class="btn-lg" type="submit" id="btn-newWord" value="New Word"/> -->
-					<button class="btn-lg" type="submit" id="btn">New Word</button>
-				</form>
+				<button class="btn-lg" type="submit" id="btn">New Word</button>
 				<div class="panel panel-default">
- 					<div class="panel-body" id="word">Трамбон</div>
+ 					<div class="panel-body" id="word">Click button "New Word"</div>
 				</div>
-				<input class="btn-lg" type="submit" id="test" value="Test Ajax"/>
-			</div>			
+			</div>	
+			</form>		
 		</div>
+		
 		<script type="text/javascript">
 		$("#form").submit(function(event){
 			event.preventDefault();
-			var formaData = "language:" + $("#language").val() + "," +
-							"level:" + $("#level").val();
-			//var formaData = "\"language:\"" + $("#language").val() + "," +
-			//				"\"level:\"" + $("#level").val();
-			//var form = $(this);
-			//var formData = form.serialize();
+			var form = $(this);
+			var formData = form.serialize();
+			console.log( "formData = "+ formData  );
 			
 			$.ajax({
 				type : "POST",
 				url : "${home}api/word",
-				data : formaData,
-				dataType : "String",
+				data : formData,
+				dataType : "text",
 				success : function(data){
 					console.log("SUCCESS: ", data);
 					$("#word").text(data);
 				},
 				error : function(e) {
 					console.log("ERROR: ", e);
-					display(e);
 				},
 				done : function(e) {
 					console.log("DONE");
 				}
 			});
 		});
-			$("#test").click(function(){
-				data = {};
-				data["a1"] = "3";			
-				$.ajax({
-					type : "POST",
-					url : "${home}api/word",
-					data : "level:1",
-					dataType : 'text',
-					success : function(data){
-						console.log("SUCCESS: ", data);
-						$("#word").text(data);
-					},
-					error : function(e) {
-						console.log("ERROR: ", e);
-						display(e);
-					},
-					done : function(e) {
-						console.log("DONE");
-					}
-				});
-			});
-			
 		</script>
 	</body>
 </html>

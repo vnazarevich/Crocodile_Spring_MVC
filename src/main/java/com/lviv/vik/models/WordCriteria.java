@@ -6,11 +6,11 @@ public class WordCriteria {
 	String user;
 	
 	public WordCriteria(String requestData) {
-		String arr[] = requestData.split(",");
+		String arr[] = requestData.split("&");
 		arr[0] = "fff:ddd";
 		arr[1] = "vvv:mmm";
-		language = (arr[0].split(":"))[1];
-		level = (arr[1].split(":"))[1];
+		language = (arr[0].split("="))[1];
+		level = (arr[1].split("="))[1];
  	}
 	public String getLanguage() {
 		return language;
