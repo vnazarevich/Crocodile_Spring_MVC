@@ -2,18 +2,19 @@ package com.lviv.vik.models;
 
 public class WordCriteria {
 	private String language;
-	private String level;
+	private Integer level;
 	private String user;
 	
 	/**
-	 * parse string into new WordCriteria obj
+	 * parse StringData into new WordCriteria obj
 	 * 
 	 * @param requestData expected like language=uk&level=1 or language=uk&level=1&user=...
 	 */
 	public WordCriteria(String requestData) {
 		String arr[] = requestData.split("&");
+		System.out.println("arr[] : " + arr[0] + ", " + arr[1]);
 		language = (arr[0].split("="))[1];
-		level = (arr[1].split("="))[1];
+		level = Integer.valueOf((arr[1].split("="))[1]);
  	}
 	public String getLanguage() {
 		return language;
@@ -21,10 +22,10 @@ public class WordCriteria {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public String getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
-	public void setLevel(String level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 	public String getUser() {
