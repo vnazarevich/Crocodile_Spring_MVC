@@ -1,14 +1,17 @@
 package com.lviv.vik.models;
 
 public class WordCriteria {
-	String language;
-	String level;
-	String user;
+	private String language;
+	private String level;
+	private String user;
 	
+	/**
+	 * parse string into new WordCriteria obj
+	 * 
+	 * @param requestData expected like language=uk&level=1 or language=uk&level=1&user=...
+	 */
 	public WordCriteria(String requestData) {
 		String arr[] = requestData.split("&");
-		arr[0] = "fff:ddd";
-		arr[1] = "vvv:mmm";
 		language = (arr[0].split("="))[1];
 		level = (arr[1].split("="))[1];
  	}

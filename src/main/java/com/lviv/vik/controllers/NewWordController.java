@@ -17,23 +17,11 @@ public class NewWordController{
 	@ResponseBody
 	@RequestMapping(value = "api/word")
 	public String generateNewWord(@RequestBody String requestData){
-		System.out.println("requestData"+requestData);
-	//	WordCriteria wordCriteria = new WordCriteria(requestData);
-//		String language;
-//		String level
-		//System.out.println("WordCriteria : " + wordCriteria.toString());
+		WordCriteria wordCriteria = new WordCriteria(requestData);
+		System.out.println("WordCriteria : " + wordCriteria.toString());
 		int i = new Random().nextInt(3);
-		String s = getWord(i);
-		System.out.println("s = " + s);
-		return s;
-		//return getWord(i);
+		return getWord(i);
 	}
-	
-//	public String generateNewWord(@RequestBody WordCriteria wordCriteria){
-//		System.out.println("WordCriteria : " + wordCriteria.toString());
-//		int i = new Random().nextInt(3);
-//		return getWord(i);
-//	}
 	
 	private String getWord (int i){
 		List <String> words = new ArrayList<String>(){{
